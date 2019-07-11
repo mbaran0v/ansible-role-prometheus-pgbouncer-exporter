@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: Maxim Baranov
-  description: Prometheus pgbouncer exporter
+  description: Prometheus PgBouncer exporter https://github.com/spreaker/prometheus-pgbouncer-exporter
   company: ""
   license: "license (MIT, BSD)"
   min_ansible_version: 2.7
