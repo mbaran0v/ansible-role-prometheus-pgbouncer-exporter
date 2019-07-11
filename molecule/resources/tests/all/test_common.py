@@ -46,7 +46,11 @@ def test_socket(host):
     assert s.is_listening
 
 
-# def test_version(host):
-#     g = pip_package.get_packages()
+def test_version(host):
+    g = pip_package.get_packages()
+    for k, v in g.items():
+        if k == "prometheus-pgbouncer-exporter":
+            version = v['version']
+            break
 
-#     assert g.exists
+    assert version == "2.0.1"

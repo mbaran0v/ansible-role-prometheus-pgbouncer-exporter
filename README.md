@@ -11,7 +11,7 @@ Ansible role for [Prometheus PgBouncer exporter](https://github.com/spreaker/pro
 Requirements
 ------------
 
-Requires Python3; recommended role for Python installation: [geerlingguy.python-pip](https://github.com/geerlingguy/ansible-role-pip.git)
+Requires Python3 and pip; recommended role for Python3 pip installation: [geerlingguy.pip](https://github.com/geerlingguy/ansible-role-pip.git)
 
 Role Variables
 --------------

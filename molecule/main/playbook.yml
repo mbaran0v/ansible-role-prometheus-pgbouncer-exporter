@@ -8,5 +8,5 @@
     - ../resources/vars/main.yaml
 
   roles:
-    - role: geerlingguy.python-pip
+    - role: geerlingguy.pip
     - role: ansible-role-prometheus-pgbouncer-exporter
