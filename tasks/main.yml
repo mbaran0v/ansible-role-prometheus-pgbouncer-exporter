@@ -1,0 +1,13 @@
+---
+
+- include: preflight.yml
+
+- include: install.yml
+
+- include: config.yml
+
+- name: ensure service is started and enabled
+  systemd:
+    name: pgbouncer_exporter
+    state: started
+    enabled: yes

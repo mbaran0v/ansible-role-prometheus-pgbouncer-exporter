@@ -1,0 +1,32 @@
+---
+
+- name: create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ pgbouncer_exporter_user }}"
+    group: "{{ pgbouncer_exporter_group }}"
+    mode: 0750
+  with_items:
+    - "{{ pgbouncer_exporter_cfg_dir }}"
+    - "{{ pgbouncer_exporter_log_dir }}"
+
+- name: create config file
+  template:
+    src: config.yml.j2
+    dest: "{{ pgbouncer_exporter_cfg_dir }}/config.yml"
+    owner: "{{ pgbouncer_exporter_user }}"
+    group: "{{ pgbouncer_exporter_group }}"
+    mode: 0640
+  notify:
+    - restart pgbouncer_exporter
+
+- name: create systemd service unit
+  template:
+    src: pgbouncer_exporter.service.j2
+    dest: /etc/systemd/system/pgbouncer_exporter.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart pgbouncer_exporter

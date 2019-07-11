@@ -1,0 +1,23 @@
+[Unit]
+Description=Prometheus Pgbouncer exporter
+Documentation=https://github.com/spreaker/prometheus-pgbouncer-exporter
+After=network.target
+
+[Service]
+Type=simple
+User={{ pgbouncer_exporter_user }}
+Group={{ pgbouncer_exporter_group }}
+{% for item in pgbouncer_exporter_env_variables %}
+Environment={{ item }}
+{% endfor %}
+ExecStart=/usr/local/bin/pgbouncer-exporter \
+  --config {{ pgbouncer_exporter_cfg_dir }}/config.yml \
+  --log-level {{ pgbouncer_exporter_log_level }} \
+  --log-file {{ pgbouncer_exporter_log_dir }}/pgbounce_exporter.log
+KillMode=process
+SyslogIdentifier=pgbouncer_exporter
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

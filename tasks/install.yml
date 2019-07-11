@@ -1,0 +1,17 @@
+---
+
+- name: ensure packages are installed
+  pip:
+    name: prometheus-pgbouncer-exporter
+    version: "{{ pgbouncer_exporter_version }}"
+    state: present
+
+- name: create system group
+  group:
+    name: "{{ pgbouncer_exporter_group }}"
+    state: present
+
+- name: create system user
+  user:
+    name: "{{ pgbouncer_exporter_user }}"
+    createhome: false

@@ -1,0 +1,26 @@
+---
+
+pgbouncer_exporter_version: 2.0.1
+
+pgbouncer_exporter_host: 127.0.0.1
+pgbouncer_exporter_port: 9127
+
+pgbouncer_exporter_cfg_dir: /etc/pgbouncer_exporter
+pgbouncer_exporter_log_dir: /var/log/pgbouncer_exporter
+
+# Accepted values are: DEBUG, INFO, WARNING, ERROR, CRITICAL
+pgbouncer_exporter_log_level: INFO
+
+pgbouncer_exporter_user: postgres
+pgbouncer_exporter_group: postgres
+
+pgbouncer_exporter_env_variables: []
+  # - PGBOUNCER_PASS=passw0rd!
+
+# see https://github.com/spreaker/prometheus-pgbouncer-exporter#configuration-file
+pgbouncer_exporter_pgbouncers:
+  - dsn: postgresql://pgbouncer:$(PGBOUNCER_PASS)@127.0.0.1:5432/pgbouncer
+    connect_timeout: 5
+    include_databases: []
+    exclude_databases:
+      - pgbouncer

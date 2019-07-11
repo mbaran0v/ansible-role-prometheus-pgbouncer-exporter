@@ -1,0 +1,25 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Maxim Baranov
+  description: Prometheus pgbouncer exporter
+  company: ""
+  license: "license (MIT, BSD)"
+  min_ansible_version: 2.7
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Debian
+      versions:
+        - stretch
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags:
+    - system
+    - postgresql
+    - pgbouncer
+    - prometheus
+    - monitoring
