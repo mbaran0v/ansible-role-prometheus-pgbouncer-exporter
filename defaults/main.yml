@@ -15,7 +15,6 @@ pgbouncer_exporter_user: postgres
 pgbouncer_exporter_group: postgres
 
 pgbouncer_exporter_env_variables: []
-  # - PGBOUNCER_PASS=passw0rd!
 
 # see https://github.com/spreaker/prometheus-pgbouncer-exporter#configuration-file
 pgbouncer_exporter_pgbouncers:
