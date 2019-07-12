@@ -4,7 +4,10 @@
   pip:
     name: prometheus-pgbouncer-exporter
     version: "{{ pgbouncer_exporter_version }}"
+    executable: pip3
     state: present
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
 - name: create system group
   group:

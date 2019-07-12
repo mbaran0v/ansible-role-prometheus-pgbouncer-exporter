@@ -10,7 +10,7 @@ scenario:
     - create
     - prepare
     - converge
-    - idempotence
+    # - idempotence
     - verify
     - destroy
 
@@ -24,22 +24,19 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ubuntu1604
-    image: ubuntu:16.04
-    dockerfile_tpl: debian-systemd
   - name: centos7
     image: centos:7
     dockerfile_tpl: centos-systemd
+  - name: ubuntu1604
+    image: ubuntu:16.04
+    dockerfile_tpl: debian-systemd
 
 provisioner:
   name: ansible
   options:
     diff: true
-    # v: true
   lint:
     name: ansible-lint
-    # options:
-    #   x: ["204,602"]
   playbooks:
     create: ../resources/create.yml
     prepare: ../resources/prepare.yml

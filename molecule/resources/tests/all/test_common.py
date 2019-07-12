@@ -1,4 +1,3 @@
-
 debian_os = ['debian', 'ubuntu']
 rhel_os = ['redhat', 'centos']
 
@@ -47,7 +46,7 @@ def test_socket(host):
 
 
 def test_version(host):
-    g = pip_package.get_packages()
+    g = host.pip_package.get_packages(pip_path='pip3')
     for k, v in g.items():
         if k == "prometheus-pgbouncer-exporter":
             version = v['version']

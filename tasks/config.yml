@@ -1,5 +1,14 @@
 ---
 
+- name: create logrotate configuration
+  template:
+    src: logrotate.conf.j2
+    dest: "{{ logrotate_conf_dir }}/pgbouncer_exporter"
+    owner: root
+    group: root
+    mode: 0644
+    force: true
+
 - name: create directories
   file:
     path: "{{ item }}"

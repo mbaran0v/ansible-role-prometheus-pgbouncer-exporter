@@ -23,3 +23,5 @@ pgbouncer_exporter_pgbouncers:
     include_databases: []
     exclude_databases:
       - pgbouncer
+
+logrotate_conf_dir: /etc/logrotate.d

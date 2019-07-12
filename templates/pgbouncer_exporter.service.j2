@@ -12,7 +12,7 @@ Environment={{ item }}
 {% endfor %}
 ExecStart=/usr/local/bin/pgbouncer-exporter \
   --config {{ pgbouncer_exporter_cfg_dir }}/config.yml \
-  --log-level {{ pgbouncer_exporter_log_level }} \
+  --log-level {{ pgbouncer_exporter_log_level | upper }} \
   --log-file {{ pgbouncer_exporter_log_dir }}/pgbounce_exporter.log
 KillMode=process
 SyslogIdentifier=pgbouncer_exporter

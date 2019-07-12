@@ -6,7 +6,6 @@ Ansible role for [Prometheus PgBouncer exporter](https://github.com/spreaker/pro
 
 * Ubuntu 16.04
 * CentOS 7
-* Debian 9
 
 Requirements
 ------------
@@ -51,7 +50,15 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
 - hosts: prometheus-pgbouncer-exporter
   roles:
-      - role: mbaran0v.prometheus-pgbouncer-exporter
+    - role: geerlingguy.repo-epel
+      when: ansible_os_family == 'RedHat'
+    - role: geerlingguy.pip
+      pip_package: python36-pip
+      when: ansible_os_family == 'RedHat'
+    - role: geerlingguy.pip
+      pip_package: python3-pip
+      when: ansible_os_family == 'Debian'
+    - role: mbaran0v.prometheus-pgbouncer-exporter
 ```
 
 License

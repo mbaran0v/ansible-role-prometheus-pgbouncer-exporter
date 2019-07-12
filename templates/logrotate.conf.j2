@@ -1,0 +1,9 @@
+{{ pgbouncer_exporter_log_dir }}/*.log {
+    daily
+    rotate 7
+    copytruncate
+    compress
+    delaycompress
+    missingok
+    notifempty
+}

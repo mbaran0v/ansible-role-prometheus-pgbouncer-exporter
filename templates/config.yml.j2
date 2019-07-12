@@ -1,0 +1,5 @@
+exporter_host: {{ pgbouncer_exporter_host }}
+exporter_port: {{ pgbouncer_exporter_port }}
+
+pgbouncers:
+{{ pgbouncer_exporter_pgbouncers | to_yaml }}
